@@ -19,9 +19,43 @@
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
+//return number of male customers from input array
 var maleCount = function(array) {
-  
+  //create storage array
+  const output = [];
+  //loop through customer for gender
+  for(let i = 0; i < array.length; i++){
+    //if gender male; push to output array
+    if(array[i].gender === 'male'){
+        output.push(array[i]);
+    
+  }
+}
+    //return length of storage array
+    return output.length;
 };
+
+var maleCount = function(array){
+    const males = _.filter(array, function(customer){
+        return customer.gender === 'male';
+    });
+    return males.length;
+}
+
+//callback function
+function(customer){
+    return customer.gender === 'male';
+}
+
+_.filter = function(array, test){
+    const output = [];
+    for(i = 0; i < array.length; i++){
+        if(test(array[i], i, array)){
+            output.push(array[i]);
+        }
+    }
+    return output;
+}
 
 var femaleCount;
 
