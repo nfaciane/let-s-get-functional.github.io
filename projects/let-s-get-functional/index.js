@@ -19,6 +19,13 @@
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
+/**
+ * I: input array
+ * O: output number
+ * C: use filter method
+ * E:
+ */
+
 //return number of male customers from input array
 var maleCount = function(array) {
   //create storage array
@@ -43,9 +50,9 @@ var maleCount = function(array){
 }
 
 //callback function
-function(customer){
-    return customer.gender === 'male';
-}
+// function(customer){
+//     return customer.gender === 'male';
+// }
 
 _.filter = function(array, test){
     const output = [];
@@ -57,23 +64,104 @@ _.filter = function(array, test){
     return output;
 }
 
-var femaleCount;
+/**
+ * I: input array
+ * O: output number
+ * C: use reduce method
+ * E:
+ */
+//find the number of female customers in array
+var femaleCount = function(array){
 
-var oldestCustomer;
+}
 
-var youngestCustomer;
+/**
+ * I: input array
+ * O: output string
+ * C: 
+ * E:
+ */
+//find oldest customer name in array
+var oldestCustomer = function(array){
 
-var averageBalance;
+}
 
-var firstLetterCount;
+/**
+ * I: input array
+ * O: output string
+ * C: 
+ * E:
+ */
+//find youngest customer name in array
+var youngestCustomer = function(array){
 
-var friendFirstLetterCount;
+}
+/**
+ * I: input array
+ * O: output number
+ * C: 
+ * E:
+ */
+//find avaerage balance of all customers
+var averageBalance = function(array){
 
-var friendsCount;
+}
 
-var topThreeTags;
+/**
+ * I: input array, letter
+ * O: output number
+ * C: 
+ * E:
+ */
+//find number of customer names that begin with a given letter
+var firstLetterCount = function(array, letter){
 
-var genderCount;
+}
+
+/**
+ * I: input array, customer, letter
+ * O: output number
+ * C: 
+ * E:
+ */
+//find how many friends of a given customer have names that start with a given letter
+var friendFirstLetterCount = function(array, customer, letter){
+
+}
+
+/**
+ * I: input array, name
+ * O: output array of names
+ * C: 
+ * E:
+ */
+//find the customers and return their names pushed into an array that have a given name in their friends list
+var friendsCount = function(array, name){
+
+}
+
+/**
+ * I: input array
+ * O: output array
+ * C: 
+ * E:
+ */
+//find the three most common tags among all customers' associated tags
+var topThreeTags = function(array){
+
+}
+
+/**
+ * I: input array
+ * O: output object
+ * C: use reduce method
+ * E:
+ */
+//create an object with a summary of gender count from input array
+//object has three keys: male, female, non-binary;
+var genderCount = function(array){
+
+}
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
