@@ -77,7 +77,27 @@ var maleCount = function(array){
 //     return customer.gender === 'male';
 // }
 
-
+//example of how reduce works
+// var femaleCount = function(array){
+//     //use reduce method
+//      //set reduce function equal to variable female
+//     let variable = array.reduce((acc, variable name that represents current item) => {
+//
+//         //condition if statement
+//         if(customer.gender === 'female'){
+//             //increment valueHolder (acc) by 1
+//             acc++;
+//         } 
+//         //return valueHolder (acc)
+//         return acc; 
+//
+//         //start value if not specified should be 0
+//     }, 0);
+//
+//         //return result; variable assigned to reduce function
+//
+//         return female;
+// }
 
 /**
  * I: input array
@@ -87,6 +107,8 @@ var maleCount = function(array){
  */
 // _.reduce = function(starting position in array, value you begin calculating with)
 // //find the number of female customers in array
+//return single value; use REDUCE
+//search array for list of results; return number of results; use REDUCE to build an array
 var femaleCount = function(array){
     //use reduce method
     let female = array.reduce((acc, customer) => {
@@ -145,8 +167,23 @@ var femaleCount = function(array){
  * E:
  */
 //find oldest customer name in array
+//return single value; use REDUCE
+//search array for greatest result; use REDUCE to find / search
 var oldestCustomer = function(array){
+    //use reduce
+    //assign reduce function to return value; syntax: let variable = array.reduce((acc, element) => {})
+    let oldest = array.reduce((previousCustomer, customer) => {
 
+        //condition compare variables
+        if(customer.age > previousCustomer.age){
+            //return customer object
+            return customer;
+        } else{ //else return previousCustomer object as oldest
+            return previousCustomer;
+        }
+    });
+    //return result name
+    return oldest.name;
 }
 
 /**
