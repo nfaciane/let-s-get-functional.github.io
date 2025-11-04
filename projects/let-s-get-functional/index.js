@@ -27,22 +27,45 @@
  */
 
 //return number of male customers from input array
-var maleCount = function(array) {
-  //create storage array
-  const output = [];
-  //loop through customer for gender
-  for(let i = 0; i < array.length; i++){
-    //if gender male; push to output array
-    if(array[i].gender === 'male'){
-        output.push(array[i]);
+//function written with for-loop and if statement
+// var maleCount = function(array) {
+//   //create storage array
+//   const output = [];
+//   //loop through customer for gender
+//   for(let i = 0; i < array.length; i++){
+//     //if gender male; push to output array
+//     if(array[i].gender === 'male'){
+//         output.push(array[i]);
     
-  }
-}
-    //return length of storage array
-    return output.length;
-};
+//   }
+// }
+//     //return length of storage array
+//     return output.length;
+// };
 
+//example of how filter method works under the hood
+// _.filter = function(array, test){
+//     const output = [];
+//     for(i = 0; i < array.length; i++){
+//         if(test(array[i], i, array)){
+//             output.push(array[i]);
+//         }
+//     }
+//     return output;
+// }
+
+/**
+ * I: input array of customer objects
+ * O: output number of male customers from input array
+ * C: use filter method
+ * E:
+ */
+//return number of male customers from input array
+//write function usind filter method
 var maleCount = function(array){
+    //filter method
+    //syntax: _.filter(input array, callback function)
+    //syntax: _.filter(input array, function(index of array))
     const males = _.filter(array, function(customer){
         return customer.gender === 'male';
     });
@@ -54,15 +77,7 @@ var maleCount = function(array){
 //     return customer.gender === 'male';
 // }
 
-_.filter = function(array, test){
-    const output = [];
-    for(i = 0; i < array.length; i++){
-        if(test(array[i], i, array)){
-            output.push(array[i]);
-        }
-    }
-    return output;
-}
+
 
 /**
  * I: input array
@@ -70,10 +85,58 @@ _.filter = function(array, test){
  * C: use reduce method
  * E:
  */
-//find the number of female customers in array
+// _.reduce = function(starting position in array, value you begin calculating with)
+// //find the number of female customers in array
 var femaleCount = function(array){
-
+    //use reduce method
+    let female = array.reduce((acc, customer) => {
+        //condition if customer object gender key value = 'female'
+        if(customer.gender === 'female'){
+            //add 1 to the accumulator
+            acc++;
+        } 
+        //return accumulator or valueHolder
+        return acc; 
+        //start value should be 0
+    }, 0);
+        //return variable female
+        return female;
 }
+
+
+//example of how reduce method works under the hood
+// _.reduce = function(    array,               func,                        seed){
+//                                        current element,                   index
+//                                                           starting point value / intial value 
+//     let valueHolder; ==================================== > stores running result / as refered to as previousValue
+//      let startIndex; =================================== > position where loop begins
+//
+//
+//     //CONDITION: if seed / inital value exists === begin value and start position here; else start loop here
+//      if(seed !== undefined){
+//          valueHolder = seed; ============================== > VALUE to begin with
+//          startIndex = 0; ======================================= > POSITION to start at
+//      } else { else seed / inital value does NOT exist; begining value and start position here
+//          valueHolder = array[0]; ============================== > VALUE to begin with is the first value in array
+//          startIndex = 1; =========================================== > POSITION to start is 1 (skiping first position)
+//      }
+//      
+//      //loop thru array using startIndex as defined above thru if / else statement
+//     for(i = startIndex; i < array.length; i++){
+//
+//          //valueHolder or previousResult (defined above in if / else statement)
+//          //set valueHolder = func or reduce function with parameters 
+//                              valueHolder, array[i] (current element/position), i (index)
+//          valueHolder = func(valueHolder,                array[i],                  i);
+//         
+//             
+//         }
+//     }
+//          return valueHolder;
+// }
+
+
+
 
 /**
  * I: input array
