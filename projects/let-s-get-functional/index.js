@@ -219,12 +219,11 @@ var youngestCustomer = function(array){
  */
 //find avaerage balance of all customers
 var averageBalance = function(array){
-    
-    //use reduce method to find sum of all customer balances
+     //use reduce method to find sum of all customer balances
     //assign result varibale to reduce function; acc is used as holding variable 
     let balanceTotal = array.reduce((accTotal, customer) => {
         // add up all customer balance values
-       return accTotal += customer.balance;
+       return accTotal + Number(customer.balance);
 
     //accTotal start at 0
     }, 0);
@@ -233,7 +232,6 @@ var averageBalance = function(array){
     let average = balanceTotal / array.length;
     //return result average
     return average;
-
 }
 
 /**
