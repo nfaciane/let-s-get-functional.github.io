@@ -193,8 +193,23 @@ var oldestCustomer = function(array){
  * E:
  */
 //find youngest customer name in array
+//return single value; use REDUCE
+//search array for greatest result; use REDUCE to find / search
 var youngestCustomer = function(array){
+    //use reduce method
+    //assign result varibale to reduce function
+    let youngest = array.reduce((previousCustomer, customer) => {
 
+        //condition
+        if(customer.age < previousCustomer.age){
+            //return customer
+            return customer;
+        } else { //return previousCustomer as youngest
+            return previousCustomer
+        }
+    });
+    //return result name
+    return youngest.name;
 }
 /**
  * I: input array
@@ -204,6 +219,20 @@ var youngestCustomer = function(array){
  */
 //find avaerage balance of all customers
 var averageBalance = function(array){
+    
+    //use reduce method to find sum of all customer balances
+    //assign result varibale to reduce function; acc is used as holding variable 
+    let balanceTotal = array.reduce((accTotal, customer) => {
+        // add up all customer balance values
+       return accTotal += customer.balance;
+
+    //accTotal start at 0
+    }, 0);
+
+    //find average by diving total customer balance by total customer number
+    let average = balanceTotal / array.length;
+    //return result average
+    return average;
 
 }
 
