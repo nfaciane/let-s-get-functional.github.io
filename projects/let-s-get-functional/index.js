@@ -240,7 +240,18 @@ var averageBalance = function(array){
  */
 //find number of customer names that begin with a given letter
 var firstLetterCount = function(array, letter){
-
+    //use reduce
+    let customerLetterCount = array.reduce(function(acc, customer){
+        //define seed => return number of customers
+            //condition => if customer name first letter === letter input; return 1 to acc
+            if(customer.name[0] === letter.toUpperCase() || customer.name[0] === letter.toLowerCase()){
+                acc += 1;
+            }
+            //return acc
+            return acc;
+    }, 0)
+    //return customer letter count
+    return customerLetterCount;
 }
 
 /**
