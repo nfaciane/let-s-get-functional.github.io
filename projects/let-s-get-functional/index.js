@@ -293,8 +293,25 @@ let customerFriendLetterCount = array.reduce(function(acc, customer){
  * E:
  */
 //find the customers and return their names pushed into an array that have a given name in their friends list
-var friendsCount = function(array, name){
+var friendsCount = function(array, friendName){
+    //given name of friend => find customer in array of customers that name key value in friend array === friendName input
+    //use reduce => 
+    let findFriendName = array.reduce(function(acc, customer){
+        //define seed => return an array of names => seed is empty array []
+            //condition => if friendName input === customerfriends array, name key value; push customer name into acc
+                //create loop => loop thru friends array
+                for(let i = 0; i < customer.friends.length; i++){
+                    //condition=> if friendName input === customerfriends array, name key value; push customer name into acc
+                    if(customer.friends[i].name === friendName.toUpperCase() || customer.friends[i].name === friendName.toLowerCase()){
+                        acc.push(customer.name);
+                    }
+                }
+                //return acc
+                return acc;
+    }, [])
 
+                //return find friend name
+                return findFriendName;
 }
 
 /**
