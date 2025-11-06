@@ -261,8 +261,29 @@ var firstLetterCount = function(array, letter){
  * E:
  */
 //find how many friends of a given customer have names that start with a given letter
-var friendFirstLetterCount = function(array, customer, letter){
+var friendFirstLetterCount = function(array, customerName, letter){
+//use reduce
+let customerFriendLetterCount = array.reduce(function(acc, customer){
+    //define seed => return a number => seed is 0
+    if(customerName === customer.name){
+        //condition => if customer name === customer input; return true => loop thru friends array
+            //customer friend value is an array => create loop of customer friends
+            for(let i = 0; i < customer.friends.length; i++){
+                //condition => if customer friend name === letter; return 1 to acc
+                if(customer.friends[i].name[0] === letter.toUpperCase() || customer.friends[i].name[0] === letter.toLowerCase()){
+                    acc += 1;
+                }
+            }
+        }
+            //return acc
+            return acc; 
+        
+}, 0)
 
+
+
+            //return customer friend letter count
+            return customerFriendLetterCount;
 }
 
 /**
