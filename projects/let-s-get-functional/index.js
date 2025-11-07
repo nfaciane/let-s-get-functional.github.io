@@ -302,7 +302,7 @@ var friendsCount = function(array, friendName){
                 //create loop => loop thru friends array
                 for(let i = 0; i < customer.friends.length; i++){
                     //condition=> if friendName input === customerfriends array, name key value; push customer name into acc
-                    if(customer.friends[i].name === friendName.toUpperCase() || customer.friends[i].name === friendName.toLowerCase()){
+                    if(customer.friends[i].name === friendName){
                         acc.push(customer.name);
                     }
                 }
