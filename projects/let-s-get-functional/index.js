@@ -383,7 +383,21 @@ var topThreeTags = function(array){
 //create an object with a summary of gender count from input array
 //object has three keys: male, female, non-binary;
 var genderCount = function(array){
+//use reduce => take in array => return object
+let object = array.reduce(function(acc, customer){
+    //define seed => result should be an object
+        //condition => if customer.gender in acc undefined; acc equal 0
+        if(!acc[customer.gender]){
+            acc[customer.gender] = 1;
+        } else { //else increment acc[customer.gender]
+            acc[customer.gender]++;
+        }
+        //return acc
+        return acc;
+}, {})
 
+    //return object
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
