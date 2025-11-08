@@ -322,6 +322,55 @@ var friendsCount = function(array, friendName){
  */
 //find the three most common tags among all customers' associated tags
 var topThreeTags = function(array){
+    //create array with all customer tags
+        //use reduce
+        let allTags = array.reduce(function(acc, customer){
+            //define seed => result is an array
+            //condition => no condition push all customer tags into acc
+                //customer.tags value is an array => create loop of customer.tags
+                for(let i = 0; i < customer.tags.length; i++){
+                    //push all customer tags into acc
+                    acc.push(customer.tags[i]);
+                }
+                //return acc
+                return acc;
+        }, [])
+    //convert allTags array to object with tag key and value number of times that tag appears
+        //use reduce
+        let rateTags = allTags.reduce(function(acc, tag){
+            //define seed => result is an object
+                //condition => if customer !== acc.customer; add acc.customer to object; else add 1 to acc.customer
+                if(!acc[tag]){
+                    //add acc.customer to object
+                    acc[tag] = 1;
+                } else{
+                    acc[tag] += 1;
+                }
+                //return acc
+                return acc;
+        }, {})
+    //convert object to array of arrays with ONLY three tags that have highest key values with string of tag, number of how often it appears
+        //declare result array equal to Object.entries
+        let arrayRateTags = Object.entries(rateTags);
+            //sort result array from highest value to lowest value
+                //sort array of arrays in decending order
+         let sortedTags =  arrayRateTags.sort(function(a, b){
+                //return sort array of arrays in decending order
+                return b[1] - a[1];
+            })
+
+            //create array of only tag names; use maps method
+            let nameTags = sortedTags.map(function(tag){
+                //return tag name
+                return tag[0];
+            })
+
+            //return first three name reseults
+            let resultTags = nameTags.slice(0, 3);
+
+        //return result array
+        return resultTags;
+        
 
 }
 
